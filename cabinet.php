@@ -7,7 +7,7 @@
         <link rel="stylesheet" href="index.css">        
     </head>
     <body>
-        <div class="forms invisible" id="workers">
+        <div class="forms invisible" id="formdiv">
             <form method="post">
                     Данные работника<br>
                 <div id="datadiv">
@@ -30,9 +30,9 @@
 		<nav>
             <ul class = "topmenu">
                 <li>показать 
-                    <ul class = "submenu">
-                        <li id="rabshow">работники</li>
-                        <li id="obj">объекты</li>
+                    <ul id="tables" class = "submenu">
+                        <li id="workers">работники</li>
+                        <li id="objects">объекты</li>
                         <li id="rab">другое</li>
                     </ul>
                 </li>

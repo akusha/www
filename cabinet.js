@@ -3,7 +3,7 @@
  	document.cookie = "log=; path=/; expires=" + date.toUTCString();
  }   
  
- var workers = document.getElementById('workers');
+ var workers = document.getElementById('formdiv');
  
  document.getElementById('rab').onclick = function(){     
 
@@ -39,12 +39,17 @@
 
  var httpreq = getXmlHttp();
 
+ var currenttable;  	//Выбранная таблица из меню
+
  var bsubmit = document.getElementById('submit');
 
  bsubmit.onclick = click;
 
 
  function click(event){
+
+ 	if (currenttable!=="workers") return;
+
  	var res = document.getElementById('res'),
  	fam = document.getElementsByName('fam')[0].value,
  	nam = document.getElementsByName('name')[0].value,
@@ -78,9 +83,22 @@
  var table = document.getElementById('table');
 
 
- document.getElementById('rabshow').onclick = function (){
+ document.getElementById('workers').onclick = function (){
 
- 	var body = "table=workers";
+ 	currenttable = "workers";
+
+ 	var body = "table="+currenttable;
+
+ 	getData(body);    
+
+ }
+
+
+ document.getElementById('objects').onclick = function (){
+
+ 	currenttable = "objects";
+
+ 	var body = "table="+currenttable;
 
  	getData(body);    
 
@@ -116,6 +134,9 @@
 
  function bdclick()
  {
+
+ 	if (currenttable!=="workers") return;
+ 	
  	var id = this.value; 
  	var name = this.getAttribute('name');
 
@@ -135,6 +156,8 @@
  var bupdate = document.getElementById('update');
 
  bupdate.onclick=function(){   						//====== Изменение записи ====== 
+
+ 	if (currenttable!=="workers") return;
 
  	var res = document.getElementById('res'),
  	fam = document.getElementsByName('fam')[0].value,
@@ -163,7 +186,7 @@
 
  				alert(result);
 
- 				getData("table=workers"); 			// =====   получение таблицы, для показа записей после удаления
+ 				getData("table="+currenttable); 			// =====   получение таблицы, для показа записей после удаления
  			}
 
  		}
@@ -202,7 +225,7 @@
  		if (httpreq.readyState == 4) {
  			if(httpreq.status == 200) {
  				res.innerHTML = httpreq.responseText; 
- 				getData("table=workers");
+ 				getData("table="+currenttable);
  				bsubmit.classList.remove('invisible'); 
  				bupdate.classList.add('invisible');
  				document.getElementsByName('id')[0].value = null;

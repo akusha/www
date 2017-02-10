@@ -58,14 +58,13 @@ if (isset($_COOKIE['log'])){
         <title>регистрация</title>
         <link rel="shortcut icon" href="image/logo_100_100.png" type="image/x-icon">
         <meta charset="utf-8">    
-        <script src="jquery-3.1.1.js"></script>
         <style> 
             body{
                 background: #b7b2b2;
                 
             }
             .view {
-                    padding: 10px;
+                    padding: px;
                     width: 250px;
                     height: 300px;
                     position: absolute;
@@ -75,9 +74,14 @@ if (isset($_COOKIE['log'])){
                     box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.25), 7px 7px 5px rgba(0, 0, 0, 0.22);
                     background: #453e3e;
                 text-align: center;
-                                }
-            
-            .invisible{
+            }
+            fieldset{
+                align-content: space-around;
+            }
+            legend {
+                text-align: left;
+            }            
+            .invisible {
                 visibility: hidden;
             }
         </style>
