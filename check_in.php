@@ -80,9 +80,24 @@ if (isset($_COOKIE['log'])){
             }
             legend {
                 text-align: left;
+                padding: 0px 3px;
+                font-weight: bold;
+                font-variant: small-caps;
             }            
             .invisible {
                 visibility: hidden;
+            }
+            label {
+                width: 110px;
+                display: inline-block;
+                vertical-align: top;
+                margin: 6px;
+            }
+            input:focus {
+            background: #98ed8d;
+            }
+            input:required:invalid {
+	           border:1px solid red;
             }
         </style>
     </head>
@@ -91,10 +106,10 @@ if (isset($_COOKIE['log'])){
             <form method="post">
                 <fieldset>
                     <legend>регистрация</legend>
-                    <label>nic:</label><input type="text" name="nic" ><br>
-                    <label>логин:</label><input type="text" name="log" id="log" value=""><br>
-                    <label>пароль:</label><input type="password" name="pass"><br>
-                    <label>Почта:</label><input type="email" name="mail"><br>
+                    <label>nic:</label><input type="text" name="nic" placeholder="dodik" autofocus><br>
+                    <label>логин:</label><input type="text" name="log" id="log" value="" placeholder="akusha@mail.ru" required><br>
+                    <label>пароль:</label><input type="password" name="pass" required><br>
+                    <label>Почта:</label><input type="email" name="mail" placeholder="akusha@mail.ru"><br>
                 </fieldset>
                     <input type="submit" value="войти" id="submit" class="invisible">
             </form>

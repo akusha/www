@@ -67,6 +67,30 @@ if (isset($_COOKIE['log'])){
             legend {
                 text-align: left;
             }
+            input[type="text"] {
+                
+            }
+            input {
+                background: #a1c7a1;
+                border: 1px solid #616184;
+            }
+            label {
+                width: 110px;
+                display: inline-block;
+                vertical-align: top;
+                margin: 6px;
+            }
+            input:focus {
+                background: #98ed8d;
+                border: 1px solid #18671b;
+            }
+            input:required:invalid {
+	           border:1px solid red;
+            }
+            ::-webkit-input-placeholder {color:#ac6c65;}
+            ::-moz-placeholder          {color:#ac6c65;}/* Firefox 19+ */
+            :-moz-placeholder           {color:#ac6c65;}/* Firefox 18- */
+            :-ms-input-placeholder      {color:#ac6c65;}
         </style>
     </head>
     <body>
@@ -74,8 +98,8 @@ if (isset($_COOKIE['log'])){
             <form method="post">
                 <fieldset>
                     <legend>вход</legend>
-                    <label>логин:</label><input type="text" name="log"><br>
-                    <label>пароль:</label><input type="password" name="pass"><br>
+                    <label for="log">логин:</label><input type="text" name="log" placeholder="akusha@mail.ru" required autofocus>
+                    <label for="pass">пароль:</label><input type="password" name="pass" required>
                 </fieldset>    
                     <input type="submit" value="войти">
             </form>
